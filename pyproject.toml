@@ -23,7 +23,7 @@ Homepage = "https://github.com/domdfcoding/astatine"
 Documentation = "https://astatine.readthedocs.io/en/latest"
 
 [tool.whey]
-base-classifiers = [ "Development Status :: 4 - Beta",]
+base-classifiers = [ "Development Status :: 4 - Beta", "Typing :: Typed",]
 python-versions = [ "3.6", "3.7", "3.8", "3.9",]
 python-implementations = [ "CPython", "PyPy",]
 platforms = [ "Windows", "macOS", "Linux",]

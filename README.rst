@@ -9,6 +9,11 @@ astatine
 .. end short_desc
 
 
+`Astatine <https://en.wikipedia.org/wiki/Astatine>`_ is a chemical element with the symbol At and atomic number 85.
+Its name comes from the Greek astatos (ἄστατος), meaning "unstable".
+It's a fitting name for Python's ``ast`` module, which has been unstable between releases.
+
+
 .. start shields
 
 .. list-table::
