@@ -26,6 +26,3 @@ python_versions:
 
 classifiers:
  - 'Development Status :: 4 - Beta'
-
-sphinx_conf_epilogue:
- - nitpicky = True
