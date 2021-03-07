@@ -97,7 +97,7 @@ It's a fitting name for Python's :mod:`ast` module, which has been unstable betw
 	:alt: GitHub top language
 
 .. |commits-since| github-shield::
-	:commits-since: v0.0.0
+	:commits-since: v0.1.0
 	:alt: GitHub commits since tagged version
 
 .. |commits-latest| github-shield::
