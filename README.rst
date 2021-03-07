@@ -1,0 +1,128 @@
+#########
+astatine
+#########
+
+.. start short_desc
+
+**Some handy helper functions for Python's AST module.**
+
+.. end short_desc
+
+
+.. start shields
+
+.. list-table::
+	:stub-columns: 1
+	:widths: 10 90
+
+	* - Docs
+	  - |docs| |docs_check|
+	* - Tests
+	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
+	* - PyPI
+	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Activity
+	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
+	* - QA
+	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+	* - Other
+	  - |license| |language| |requires|
+
+.. |docs| image:: https://img.shields.io/readthedocs/astatine/latest?logo=read-the-docs
+	:target: https://astatine.readthedocs.io/en/latest
+	:alt: Documentation Build Status
+
+.. |docs_check| image:: https://github.com/domdfcoding/astatine/workflows/Docs%20Check/badge.svg
+	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Docs+Check%22
+	:alt: Docs Check Status
+
+.. |actions_linux| image:: https://github.com/domdfcoding/astatine/workflows/Linux/badge.svg
+	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Linux%22
+	:alt: Linux Test Status
+
+.. |actions_windows| image:: https://github.com/domdfcoding/astatine/workflows/Windows/badge.svg
+	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Windows%22
+	:alt: Windows Test Status
+
+.. |actions_macos| image:: https://github.com/domdfcoding/astatine/workflows/macOS/badge.svg
+	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22macOS%22
+	:alt: macOS Test Status
+
+.. |actions_flake8| image:: https://github.com/domdfcoding/astatine/workflows/Flake8/badge.svg
+	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Flake8%22
+	:alt: Flake8 Status
+
+.. |actions_mypy| image:: https://github.com/domdfcoding/astatine/workflows/mypy/badge.svg
+	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22mypy%22
+	:alt: mypy status
+
+.. |requires| image:: https://requires.io/github/domdfcoding/astatine/requirements.svg?branch=master
+	:target: https://requires.io/github/domdfcoding/astatine/requirements/?branch=master
+	:alt: Requirements Status
+
+.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/astatine/master?logo=coveralls
+	:target: https://coveralls.io/github/domdfcoding/astatine?branch=master
+	:alt: Coverage
+
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/astatine?logo=codefactor
+	:target: https://www.codefactor.io/repository/github/domdfcoding/astatine
+	:alt: CodeFactor Grade
+
+.. |pypi-version| image:: https://img.shields.io/pypi/v/astatine
+	:target: https://pypi.org/project/astatine/
+	:alt: PyPI - Package Version
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/astatine?logo=python&logoColor=white
+	:target: https://pypi.org/project/astatine/
+	:alt: PyPI - Supported Python Versions
+
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/astatine
+	:target: https://pypi.org/project/astatine/
+	:alt: PyPI - Supported Implementations
+
+.. |wheel| image:: https://img.shields.io/pypi/wheel/astatine
+	:target: https://pypi.org/project/astatine/
+	:alt: PyPI - Wheel
+
+.. |license| image:: https://img.shields.io/github/license/domdfcoding/astatine
+	:target: https://github.com/domdfcoding/astatine/blob/master/LICENSE
+	:alt: License
+
+.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/astatine
+	:alt: GitHub top language
+
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/astatine/v0.0.0
+	:target: https://github.com/domdfcoding/astatine/pulse
+	:alt: GitHub commits since tagged version
+
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/astatine
+	:target: https://github.com/domdfcoding/astatine/commit/master
+	:alt: GitHub last commit
+
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2021
+	:alt: Maintenance
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/astatine
+	:target: https://pypi.org/project/astatine/
+	:alt: PyPI - Downloads
+
+.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/astatine/master.svg
+	:target: https://results.pre-commit.ci/latest/github/domdfcoding/astatine/master
+	:alt: pre-commit.ci status
+
+.. end shields
+
+Installation
+--------------
+
+.. start installation
+
+``astatine`` can be installed from PyPI.
+
+To install with ``pip``:
+
+.. code-block:: bash
+
+	$ python -m pip install astatine
+
+.. end installation

@@ -1,0 +1,5 @@
+=========
+astatine
+=========
+
+.. automodule:: astatine
