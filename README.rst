@@ -26,6 +26,8 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Anaconda
+	  - |conda-version| |conda-platform|
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
@@ -89,6 +91,14 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	:target: https://pypi.org/project/astatine/
 	:alt: PyPI - Wheel
 
+.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/astatine?logo=anaconda
+	:target: https://anaconda.org/domdfcoding/astatine
+	:alt: Conda - Package Version
+
+.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/astatine?label=conda%7Cplatform
+	:target: https://anaconda.org/domdfcoding/astatine
+	:alt: Conda - Platform
+
 .. |license| image:: https://img.shields.io/github/license/domdfcoding/astatine
 	:target: https://github.com/domdfcoding/astatine/blob/master/LICENSE
 	:alt: License
@@ -122,12 +132,26 @@ Installation
 
 .. start installation
 
-``astatine`` can be installed from PyPI.
+``astatine`` can be installed from PyPI or Anaconda.
 
 To install with ``pip``:
 
 .. code-block:: bash
 
 	$ python -m pip install astatine
+
+To install with ``conda``:
+
+	* First add the required channels
+
+	.. code-block:: bash
+
+		$ conda config --add channels http://conda.anaconda.org/domdfcoding
+
+	* Then install
+
+	.. code-block:: bash
+
+		$ conda install astatine
 
 .. end installation

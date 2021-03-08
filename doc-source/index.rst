@@ -24,6 +24,8 @@ It's a fitting name for Python's :mod:`ast` module, which has been unstable betw
 	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
+	* - Anaconda
+	  - |conda-version| |conda-platform|
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
@@ -88,6 +90,14 @@ It's a fitting name for Python's :mod:`ast` module, which has been unstable betw
 	:wheel:
 	:alt: PyPI - Wheel
 
+.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/astatine?logo=anaconda
+	:target: https://anaconda.org/domdfcoding/astatine
+	:alt: Conda - Package Version
+
+.. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/astatine?label=conda%7Cplatform
+	:target: https://anaconda.org/domdfcoding/astatine
+	:alt: Conda - Platform
+
 .. |license| github-shield::
 	:license:
 	:alt: License
@@ -125,6 +135,8 @@ Installation
 .. installation:: astatine
 	:pypi:
 	:github:
+	:anaconda:
+	:conda-channels: domdfcoding
 
 .. end installation
 
