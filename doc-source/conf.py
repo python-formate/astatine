@@ -23,7 +23,7 @@ rst_prolog = f""".. |pkgname| replace:: astatine
 """
 
 author = "Dominic Davis-Foster"
-project = "astatine"
+project = "astatine".replace('_', '-')
 slug = re.sub(r'\W+', '-', project.lower())
 release = version = __version__
 copyright = "2021 Dominic Davis-Foster"  # pylint: disable=redefined-builtin
