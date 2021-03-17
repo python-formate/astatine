@@ -1,5 +1,6 @@
 # stdlib
 import ast
+import sys
 from types import ModuleType
 
 # 3rd party
@@ -8,7 +9,13 @@ from coincidence import AdvancedDataRegressionFixture, check_file_regression
 from pytest_regressions.file_regression import FileRegressionFixture
 
 # this package
-from astatine import get_docstring_lineno, get_toplevel_comments, is_type_checking, mark_text_ranges
+from astatine import (
+		get_docstring_lineno,
+		get_toplevel_comments,
+		is_type_checking,
+		kwargs_from_node,
+		mark_text_ranges
+		)
 
 docstring_ast: ModuleType
 
@@ -205,3 +212,26 @@ def test_mark_text_ranges(source: str, advanced_data_regression: AdvancedDataReg
 				assert child.col_offset is not None
 
 	# TODO: check the output
+
+
+def demo_function(arg1, arg2, arg3):
+	pass
+
+
+@pytest.mark.parametrize(
+		"source, posarg_names,  expects",
+		[
+				("foo(1, 2, 3)", ("arg1", "arg2", "arg3"), {"arg1": 1, "arg2": 2, "arg3": 3}),
+				("foo(1, 2, 3)", demo_function, {"arg1": 1, "arg2": 2, "arg3": 3}),
+				]
+		)
+def test_kwargs_from_node(source, posarg_names, expects):
+	tree = ast.parse(source)
+	node = tree.body[0].value
+
+	result = kwargs_from_node(node, posarg_names)
+
+	if sys.version_info >= (3, 8):
+		assert {k: v.value for k, v in result.items()} == expects
+	else:
+		assert {k: v.n for k, v in result.items()} == expects

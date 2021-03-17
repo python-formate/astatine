@@ -33,11 +33,12 @@ Some handy helper functions for Python's AST module.
 
 # stdlib
 import ast
-from typing import Optional, Tuple, Type, Union
+from typing import Callable, Dict, Iterable, List, Optional, Tuple, Type, Union
 
 # 3rd party
 from asttokens.asttokens import ASTTokens  # type: ignore
 from domdf_python_tools.stringlist import StringList
+from domdf_python_tools.utils import posargs2kwargs
 
 Str: Tuple[Type, ...]
 Constant: Tuple[Type, ...]
@@ -64,7 +65,13 @@ __license__: str = "MIT License"
 __version__: str = "0.1.0"
 __email__: str = "dominic@davis-foster.co.uk"
 
-__all__ = ["get_docstring_lineno", "get_toplevel_comments", "is_type_checking", "mark_text_ranges"]
+__all__ = [
+		"get_docstring_lineno",
+		"get_toplevel_comments",
+		"is_type_checking",
+		"mark_text_ranges",
+		"kwargs_from_node",
+		]
 
 
 def get_toplevel_comments(source: str) -> StringList:
@@ -160,3 +167,24 @@ def get_docstring_lineno(node: Union[ast.FunctionDef, ast.ClassDef, ast.Module],
 		return body.lineno
 	else:  # pragma: no cover
 		return None
+
+
+def kwargs_from_node(
+		node: ast.Call,
+		posarg_names: Union[Iterable[str], Callable],
+		) -> Dict[str, ast.AST]:
+	"""
+	Returns a mapping of argument names to the AST nodes representing their values, for the given function call.
+
+	.. versionadded:: 0.2.0
+
+	:param node:
+	:param posarg_names: Either a list of positional argument names for the function, or the function object.
+	"""
+
+	args: List[ast.expr] = node.args
+	keywords: List[ast.keyword] = node.keywords
+
+	kwargs = {kw.arg: kw.value for kw in keywords}
+
+	return posargs2kwargs(args, posarg_names, kwargs)
