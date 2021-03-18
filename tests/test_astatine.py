@@ -227,11 +227,11 @@ def demo_function(arg1, arg2, arg3):
 		)
 def test_kwargs_from_node(source, posarg_names, expects):
 	tree = ast.parse(source)
-	node = tree.body[0].value
+	node = tree.body[0].value  # type: ignore
 
 	result = kwargs_from_node(node, posarg_names)
 
 	if sys.version_info >= (3, 8):
 		assert {k: v.value for k, v in result.items()} == expects
 	else:
-		assert {k: v.n for k, v in result.items()} == expects
+		assert {k: v.n for k, v in result.items()} == expects  # type: ignore

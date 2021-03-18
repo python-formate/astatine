@@ -187,4 +187,8 @@ def kwargs_from_node(
 
 	kwargs = {kw.arg: kw.value for kw in keywords}
 
-	return posargs2kwargs(args, posarg_names, kwargs)
+	return posargs2kwargs(
+			args,
+			posarg_names,
+			kwargs,  # type: ignore
+			)
