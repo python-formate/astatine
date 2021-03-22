@@ -4,7 +4,7 @@ astatine
 
 .. start short_desc
 
-**Some handy helper functions for Python's AST module.**
+.. documentation-summary::
 
 .. end short_desc
 
