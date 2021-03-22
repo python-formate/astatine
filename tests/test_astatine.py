@@ -5,11 +5,14 @@ from types import ModuleType
 
 # 3rd party
 import pytest
-from coincidence import AdvancedDataRegressionFixture, check_file_regression
+from coincidence.regressions import AdvancedDataRegressionFixture, check_file_regression
 from pytest_regressions.file_regression import FileRegressionFixture
 
 # this package
 from astatine import (
+		get_attribute_name,
+		get_constants,
+		get_contextmanagers,
 		get_docstring_lineno,
 		get_toplevel_comments,
 		is_type_checking,
@@ -235,3 +238,67 @@ def test_kwargs_from_node(source, posarg_names, expects):
 		assert {k: v.value for k, v in result.items()} == expects
 	else:
 		assert {k: v.n for k, v in result.items()} == expects  # type: ignore
+
+
+@pytest.mark.parametrize(
+		"source, result",
+		[
+				("foo", ["foo"]),
+				("foo.bar", ["foo", "bar"]),
+				("print", ["print"]),
+				("print()", ["print"]),
+				("print('foo')", ["print"]),
+				("builtins.print", ["builtins", "print"]),
+				("builtins.print()", ["builtins", "print"]),
+				("builtins.print('foo')", ["builtins", "print"]),
+				("suppress(ImportError)", ["suppress"]),
+				("contextlib.suppress(ModuleNotFoundError)", ["contextlib", "suppress"]),
+				]
+		)
+def test_get_attribute_name(source: str, result: str):
+	node = ast.parse(source).body[0].value  # type: ignore
+	assert list(get_attribute_name(node)) == result
+
+
+@pytest.mark.parametrize(
+		"source, result",
+		[
+				("with foo: pass", [("foo", )]),
+				("with foo.bar: pass", [("foo", "bar")]),
+				("with foo.bar(baz): pass", [("foo", "bar")]),
+				("with foo, bar: pass", [("foo", ), ("bar", )]),
+				("with suppress(ImportError): pass", [("suppress", )]),
+				("with contextlib.suppress(ModuleNotFoundError): pass", [("contextlib", "suppress")]),
+				]
+		)
+def test_get_contextmanagers(source: str, result: str):
+	contextmanagers = get_contextmanagers(ast.parse(source).body[0])  # type: ignore
+	assert isinstance(contextmanagers, dict)
+
+	assert list(contextmanagers) == result
+	assert all(isinstance(n, ast.AST) for n in contextmanagers.values())
+
+
+@pytest.mark.parametrize(
+		"source",
+		[
+				pytest.param(
+						"import foo\nfrom bar import baz\n__version__ = '1.2.3'\nFAST = 1\nCORRECT=2",
+						id="complex_1"
+						),
+				pytest.param("__version__ = '1.2.3'", id="version"),
+				pytest.param("FAST = 1\nCORRECT=2", id="CONSTANTS"),
+				pytest.param("my_dictionary = {}", id="dict"),
+				pytest.param("extensions = ['foo']", id="list"),
+				]
+		)
+def test_get_constants(source: str, advanced_data_regression: AdvancedDataRegressionFixture):
+	module = ast.parse(source)
+	advanced_data_regression.check(get_constants(module))
+
+
+def test_get_constants_error():
+	module = ast.parse("extensions = [foo]")
+
+	with pytest.raises(ValueError, match="malformed node or string.*: <.?ast.Name object at 0x.*>"):
+		get_constants(module)

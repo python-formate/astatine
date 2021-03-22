@@ -33,7 +33,7 @@ Some handy helper functions for Python's AST module.
 
 # stdlib
 import ast
-from typing import Callable, Dict, Iterable, List, Optional, Tuple, Type, Union
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Type, Union
 
 # 3rd party
 from asttokens.asttokens import ASTTokens  # type: ignore
@@ -71,6 +71,9 @@ __all__ = [
 		"is_type_checking",
 		"mark_text_ranges",
 		"kwargs_from_node",
+		"get_attribute_name",
+		"get_contextmanagers",
+		"get_constants",
 		]
 
 
@@ -192,3 +195,69 @@ def kwargs_from_node(
 			posarg_names,
 			kwargs,  # type: ignore
 			)
+
+
+def get_attribute_name(node: ast.AST) -> Iterable[str]:
+	"""
+	Returns the elements of the dotted attribute name for the given AST node.
+
+	.. versionadded:: 0.3.0
+
+	:param node:
+
+	:raises NotImplementedError: if the name contains an unknown node
+		(i.e. not :class:`ast.Name`, :class:`ast.Attribute`, or :class:`ast.Call`)
+	"""
+
+	if isinstance(node, ast.Name):
+		yield node.id
+	elif isinstance(node, ast.Attribute):
+		yield from get_attribute_name(node.value)
+		yield node.attr
+	elif isinstance(node, ast.Call):
+		yield from get_attribute_name(node.func)
+	else:
+		raise NotImplementedError(type(node))
+
+
+def get_contextmanagers(with_node: ast.With) -> Dict[Tuple[str, ...], ast.withitem]:
+	"""
+	For the given ``with`` block, returns a mapping of the contextmanager names to the individual nodes.
+
+	.. versionadded:: 0.3.0
+
+	:param with_node:
+	"""
+
+	contextmanagers = {}
+
+	item: ast.withitem
+	for item in with_node.items:
+
+		name = tuple(get_attribute_name(item.context_expr))
+
+		contextmanagers[name] = item
+
+	return contextmanagers
+
+
+def get_constants(module: ast.Module) -> Dict[str, Any]:
+	"""
+	Returns a ``name: value`` mapping of constants in the given module.
+
+	.. versionadded:: 0.3.0
+
+	:param module:
+	"""
+
+	constants = {}
+
+	for node in module.body:
+		if isinstance(node, ast.Assign):
+			targets = ['.'.join(get_attribute_name(t)) for t in node.targets]
+			value = ast.literal_eval(node.value)
+
+			for target in targets:
+				constants[target] = value
+
+	return constants
