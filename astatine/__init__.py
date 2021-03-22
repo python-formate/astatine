@@ -62,7 +62,7 @@ except ImportError:  # pragma: no cover
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2021 Dominic Davis-Foster"
 __license__: str = "MIT License"
-__version__: str = "0.2.0"
+__version__: str = "0.3.0"
 __email__: str = "dominic@davis-foster.co.uk"
 
 __all__ = [
@@ -179,7 +179,7 @@ def kwargs_from_node(
 	"""
 	Returns a mapping of argument names to the AST nodes representing their values, for the given function call.
 
-	.. versionadded:: 0.2.0
+	.. versionadded:: 0.3.0
 
 	:param node:
 	:param posarg_names: Either a list of positional argument names for the function, or the function object.
