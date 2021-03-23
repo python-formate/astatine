@@ -106,7 +106,7 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/astatine
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/astatine/v0.3.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/astatine/v0.3.1
 	:target: https://github.com/domdfcoding/astatine/pulse
 	:alt: GitHub commits since tagged version
 

@@ -62,7 +62,7 @@ except ImportError:  # pragma: no cover
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2021 Dominic Davis-Foster"
 __license__: str = "MIT License"
-__version__: str = "0.3.0"
+__version__: str = "0.3.1"
 __email__: str = "dominic@davis-foster.co.uk"
 
 __all__ = [
@@ -179,7 +179,7 @@ def kwargs_from_node(
 	"""
 	Returns a mapping of argument names to the AST nodes representing their values, for the given function call.
 
-	.. versionadded:: 0.3.0
+	.. versionadded:: 0.3.1
 
 	:param node:
 	:param posarg_names: Either a list of positional argument names for the function, or the function object.
@@ -201,7 +201,7 @@ def get_attribute_name(node: ast.AST) -> Iterable[str]:
 	"""
 	Returns the elements of the dotted attribute name for the given AST node.
 
-	.. versionadded:: 0.3.0
+	.. versionadded:: 0.3.1
 
 	:param node:
 
@@ -224,7 +224,7 @@ def get_contextmanagers(with_node: ast.With) -> Dict[Tuple[str, ...], ast.withit
 	"""
 	For the given ``with`` block, returns a mapping of the contextmanager names to the individual nodes.
 
-	.. versionadded:: 0.3.0
+	.. versionadded:: 0.3.1
 
 	:param with_node:
 	"""
@@ -245,7 +245,7 @@ def get_constants(module: ast.Module) -> Dict[str, Any]:
 	"""
 	Returns a ``name: value`` mapping of constants in the given module.
 
-	.. versionadded:: 0.3.0
+	.. versionadded:: 0.3.1
 
 	:param module:
 	"""
