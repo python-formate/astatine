@@ -2,6 +2,7 @@
 import ast
 import sys
 from types import ModuleType
+from typing import Union
 
 # 3rd party
 import pytest
@@ -24,7 +25,8 @@ docstring_ast: ModuleType
 
 try:
 	# 3rd party
-	import typed_ast.ast3 as docstring_ast  # type: ignore
+	import typed_ast.ast3
+	docstring_ast = typed_ast.ast3
 except ImportError:
 	docstring_ast = ast
 
@@ -89,7 +91,7 @@ def test_is_type_checking(source: str, expected: bool):
 
 
 def parse_and_get_child(source: str, child: int) -> ast.AST:
-	node = docstring_ast.parse(source)  # type: ignore
+	node = docstring_ast.parse(source)
 	return node.body[child]
 
 
@@ -138,8 +140,8 @@ def parse_and_get_child(source: str, child: int) -> ast.AST:
 						),
 				],
 		)
-def test_get_docstring_lineno(node: ast.AST, expected: int):
-	assert get_docstring_lineno(node) == expected  # type: ignore
+def test_get_docstring_lineno(node: Union[ast.FunctionDef, ast.ClassDef, ast.Module], expected: int):
+	assert get_docstring_lineno(node) == expected
 
 
 @pytest.mark.parametrize(
@@ -207,8 +209,8 @@ def test_mark_text_ranges(source: str, advanced_data_regression: AdvancedDataReg
 
 	for child in ast.walk(tree):
 		if hasattr(child, "last_token"):
-			assert child.end_lineno  # type: ignore
-			assert child.end_col_offset is not None  # type: ignore
+			assert child.end_lineno  # type: ignore[attr-defined]
+			assert child.end_col_offset is not None  # type: ignore[attr-defined]
 
 			if hasattr(child, "lineno"):
 				assert child.lineno
@@ -230,14 +232,14 @@ def demo_function(arg1, arg2, arg3):
 		)
 def test_kwargs_from_node(source, posarg_names, expects):
 	tree = ast.parse(source)
-	node = tree.body[0].value  # type: ignore
+	node = tree.body[0].value  # type: ignore[attr-defined]
 
 	result = kwargs_from_node(node, posarg_names)
 
 	if sys.version_info >= (3, 8):
 		assert {k: v.value for k, v in result.items()} == expects
 	else:
-		assert {k: v.n for k, v in result.items()} == expects  # type: ignore
+		assert {k: v.n for k, v in result.items()} == expects  # type: ignore[attr-defined]
 
 
 @pytest.mark.parametrize(
@@ -256,7 +258,7 @@ def test_kwargs_from_node(source, posarg_names, expects):
 				]
 		)
 def test_get_attribute_name(source: str, result: str):
-	node = ast.parse(source).body[0].value  # type: ignore
+	node = ast.parse(source).body[0].value  # type: ignore[attr-defined]
 	assert list(get_attribute_name(node)) == result
 
 
@@ -272,7 +274,7 @@ def test_get_attribute_name(source: str, result: str):
 				]
 		)
 def test_get_contextmanagers(source: str, result: str):
-	contextmanagers = get_contextmanagers(ast.parse(source).body[0])  # type: ignore
+	contextmanagers = get_contextmanagers(ast.parse(source).body[0])  # type: ignore[arg-type]
 	assert isinstance(contextmanagers, dict)
 
 	assert list(contextmanagers) == result

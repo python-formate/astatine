@@ -33,10 +33,10 @@ Some handy helper functions for Python's AST module.
 
 # stdlib
 import ast
-from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Type, Union
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Type, Union, cast
 
 # 3rd party
-from asttokens.asttokens import ASTTokens  # type: ignore
+from asttokens.asttokens import ASTTokens  # type: ignore[import]
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.utils import posargs2kwargs
 
@@ -50,7 +50,7 @@ try:  # pragma: no cover
 	Str = (ast.Str, typed_ast.ast3.Str)
 	Constant = (
 			ast.Constant,
-			typed_ast.ast3.Constant,  # type: ignore
+			typed_ast.ast3.Constant,  # type: ignore[attr-defined]
 			)
 	Expr = (ast.Expr, typed_ast.ast3.Expr)
 
@@ -135,14 +135,14 @@ def mark_text_ranges(node: ast.AST, source: str):
 
 	for child in ast.walk(node):
 		if hasattr(child, "last_token"):
-			child.end_lineno, child.end_col_offset = child.last_token.end  # type: ignore
+			child.end_lineno, child.end_col_offset = child.last_token.end  # type: ignore[attr-defined]
 
 			if hasattr(child, "lineno"):
 				# Fixes problems with some nodes like binop
-				child.lineno, child.col_offset = child.first_token.start  # type: ignore
+				child.lineno, child.col_offset = child.first_token.start  # type: ignore[attr-defined]
 
 
-def get_docstring_lineno(node: Union[ast.FunctionDef, ast.ClassDef, ast.Module], ) -> Optional[int]:
+def get_docstring_lineno(node: Union[ast.FunctionDef, ast.ClassDef, ast.Module]) -> Optional[int]:
 	"""
 	Returns the line number of the start of the docstring for ``node``.
 
@@ -162,7 +162,7 @@ def get_docstring_lineno(node: Union[ast.FunctionDef, ast.ClassDef, ast.Module],
 	if not (node.body and isinstance(node.body[0], Expr)):  # pragma: no cover
 		return None
 
-	body = node.body[0].value  # type: ignore
+	body = node.body[0].value  # type: ignore[attr-defined]
 
 	if isinstance(body, Constant) and isinstance(body.value, str):  # pragma: no cover (<py38)
 		return body.lineno
@@ -192,12 +192,12 @@ def kwargs_from_node(
 	args: List[ast.expr] = node.args
 	keywords: List[ast.keyword] = node.keywords
 
-	kwargs = {kw.arg: kw.value for kw in keywords}
+	kwargs = {cast(str, kw.arg): kw.value for kw in keywords}
 
 	return posargs2kwargs(
 			args,
 			posarg_names,
-			kwargs,  # type: ignore
+			kwargs,
 			)
 
 
