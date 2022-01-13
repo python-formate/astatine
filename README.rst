@@ -39,40 +39,40 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	:target: https://astatine.readthedocs.io/en/latest
 	:alt: Documentation Build Status
 
-.. |docs_check| image:: https://github.com/domdfcoding/astatine/workflows/Docs%20Check/badge.svg
-	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Docs+Check%22
+.. |docs_check| image:: https://github.com/python-formate/astatine/workflows/Docs%20Check/badge.svg
+	:target: https://github.com/python-formate/astatine/actions?query=workflow%3A%22Docs+Check%22
 	:alt: Docs Check Status
 
-.. |actions_linux| image:: https://github.com/domdfcoding/astatine/workflows/Linux/badge.svg
-	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Linux%22
+.. |actions_linux| image:: https://github.com/python-formate/astatine/workflows/Linux/badge.svg
+	:target: https://github.com/python-formate/astatine/actions?query=workflow%3A%22Linux%22
 	:alt: Linux Test Status
 
-.. |actions_windows| image:: https://github.com/domdfcoding/astatine/workflows/Windows/badge.svg
-	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Windows%22
+.. |actions_windows| image:: https://github.com/python-formate/astatine/workflows/Windows/badge.svg
+	:target: https://github.com/python-formate/astatine/actions?query=workflow%3A%22Windows%22
 	:alt: Windows Test Status
 
-.. |actions_macos| image:: https://github.com/domdfcoding/astatine/workflows/macOS/badge.svg
-	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22macOS%22
+.. |actions_macos| image:: https://github.com/python-formate/astatine/workflows/macOS/badge.svg
+	:target: https://github.com/python-formate/astatine/actions?query=workflow%3A%22macOS%22
 	:alt: macOS Test Status
 
-.. |actions_flake8| image:: https://github.com/domdfcoding/astatine/workflows/Flake8/badge.svg
-	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22Flake8%22
+.. |actions_flake8| image:: https://github.com/python-formate/astatine/workflows/Flake8/badge.svg
+	:target: https://github.com/python-formate/astatine/actions?query=workflow%3A%22Flake8%22
 	:alt: Flake8 Status
 
-.. |actions_mypy| image:: https://github.com/domdfcoding/astatine/workflows/mypy/badge.svg
-	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22mypy%22
+.. |actions_mypy| image:: https://github.com/python-formate/astatine/workflows/mypy/badge.svg
+	:target: https://github.com/python-formate/astatine/actions?query=workflow%3A%22mypy%22
 	:alt: mypy status
 
-.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/badge.svg
-	:target: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/
+.. |requires| image:: https://dependency-dash.herokuapp.com/github/python-formate/astatine/badge.svg
+	:target: https://dependency-dash.herokuapp.com/github/python-formate/astatine/
 	:alt: Requirements Status
 
-.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/astatine/master?logo=coveralls
-	:target: https://coveralls.io/github/domdfcoding/astatine?branch=master
+.. |coveralls| image:: https://img.shields.io/coveralls/github/python-formate/astatine/master?logo=coveralls
+	:target: https://coveralls.io/github/python-formate/astatine?branch=master
 	:alt: Coverage
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/astatine?logo=codefactor
-	:target: https://www.codefactor.io/repository/github/domdfcoding/astatine
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/python-formate/astatine?logo=codefactor
+	:target: https://www.codefactor.io/repository/github/python-formate/astatine
 	:alt: CodeFactor Grade
 
 .. |pypi-version| image:: https://img.shields.io/pypi/v/astatine
@@ -99,19 +99,19 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	:target: https://anaconda.org/domdfcoding/astatine
 	:alt: Conda - Platform
 
-.. |license| image:: https://img.shields.io/github/license/domdfcoding/astatine
-	:target: https://github.com/domdfcoding/astatine/blob/master/LICENSE
+.. |license| image:: https://img.shields.io/github/license/python-formate/astatine
+	:target: https://github.com/python-formate/astatine/blob/master/LICENSE
 	:alt: License
 
-.. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/astatine
+.. |language| image:: https://img.shields.io/github/languages/top/python-formate/astatine
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/astatine/v0.3.1
-	:target: https://github.com/domdfcoding/astatine/pulse
+.. |commits-since| image:: https://img.shields.io/github/commits-since/python-formate/astatine/v0.3.1
+	:target: https://github.com/python-formate/astatine/pulse
 	:alt: GitHub commits since tagged version
 
-.. |commits-latest| image:: https://img.shields.io/github/last-commit/domdfcoding/astatine
-	:target: https://github.com/domdfcoding/astatine/commit/master
+.. |commits-latest| image:: https://img.shields.io/github/last-commit/python-formate/astatine
+	:target: https://github.com/python-formate/astatine/commit/master
 	:alt: GitHub last commit
 
 .. |maintained| image:: https://img.shields.io/maintenance/yes/2022

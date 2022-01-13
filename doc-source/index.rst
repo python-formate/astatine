@@ -66,8 +66,8 @@ astatine
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/badge.svg
-		:target: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/
+	.. |requires| image:: https://dependency-dash.herokuapp.com/github/python-formate/astatine/badge.svg
+		:target: https://dependency-dash.herokuapp.com/github/python-formate/astatine/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
@@ -160,7 +160,6 @@ Contents
 	:glob:
 
 	API Reference <api/astatine.rst>
-	contributing
 	Source
 	license
 
@@ -169,6 +168,7 @@ Contents
 	:github:
 	:pypi: astatine
 
+	Contributing Guide<https://contributing-to-formate.readthedocs.io>
 
 .. start links
 
@@ -176,6 +176,6 @@ Contents
 
 	View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/index.html>`__.
 
-	:github:repo:`Browse the GitHub Repository <domdfcoding/astatine>`
+	:github:repo:`Browse the GitHub Repository <python-formate/astatine>`
 
 .. end links

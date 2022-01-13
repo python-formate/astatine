@@ -3,13 +3,13 @@ Downloading source code
 =========================
 
 The ``astatine`` source code is available on GitHub,
-and can be accessed from the following URL: https://github.com/domdfcoding/astatine
+and can be accessed from the following URL: https://github.com/python-formate/astatine
 
 If you have ``git`` installed, you can clone the repository with the following command:
 
 .. prompt:: bash
 
-	git clone https://github.com/domdfcoding/astatine
+	git clone https://github.com/python-formate/astatine
 
 .. parsed-literal::
 
