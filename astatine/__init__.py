@@ -183,6 +183,10 @@ def kwargs_from_node(
 
 	:param node:
 	:param posarg_names: Either a list of positional argument names for the function, or the function object.
+
+	:rtype:
+
+	.. latex:clearpage::
 	"""
 
 	args: List[ast.expr] = node.args
@@ -248,6 +252,10 @@ def get_constants(module: ast.Module) -> Dict[str, Any]:
 	.. versionadded:: 0.3.1
 
 	:param module:
+
+	:rtype:
+
+	.. latex:clearpage::
 	"""
 
 	constants = {}

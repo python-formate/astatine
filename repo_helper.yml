@@ -35,3 +35,11 @@ classifiers:
 
 keywords:
  - ast
+
+extra_sphinx_extensions:
+ - html_section
+ - sphinx_toolbox_experimental.needspace
+ - sphinx_toolbox_experimental.autosummary_widths
+
+sphinx_conf_epilogue:
+ - autosummary_widths_builders = ["latex"]
