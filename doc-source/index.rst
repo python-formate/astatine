@@ -5,6 +5,7 @@ astatine
 .. start short_desc
 
 .. documentation-summary::
+	:meta:
 
 .. end short_desc
 
@@ -31,7 +32,7 @@ It's a fitting name for Python's :mod:`ast` module, which has been unstable betw
 		* - Activity
 		  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 		* - QA
-		  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+		  - |codefactor| |actions_flake8| |actions_mypy|
 		* - Other
 		  - |license| |language| |requires|
 
@@ -63,7 +64,8 @@ It's a fitting name for Python's :mod:`ast` module, which has been unstable betw
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| requires-io-shield::
+	.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/badge.svg
+		:target: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
@@ -116,16 +118,13 @@ It's a fitting name for Python's :mod:`ast` module, which has been unstable betw
 		:last-commit:
 		:alt: GitHub last commit
 
-	.. |maintained| maintained-shield:: 2021
+	.. |maintained| maintained-shield:: 2022
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
 		:project: astatine
 		:downloads: month
 		:alt: PyPI - Downloads
-
-	.. |pre_commit_ci| pre-commit-ci-shield::
-		:alt: pre-commit.ci status
 
 .. end shields
 
@@ -164,12 +163,18 @@ Contents
 	contributing
 	Source
 
+.. sidebar-links::
+	:caption: Links
+	:github:
+	:pypi: astatine
+
+
 .. start links
 
 .. only:: html
 
 	View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/index.html>`__.
 
-	`Browse the GitHub Repository <https://github.com/domdfcoding/astatine>`__
+	:github:repo:`Browse the GitHub Repository <domdfcoding/astatine>`
 
 .. end links

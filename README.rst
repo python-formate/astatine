@@ -31,7 +31,7 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
-	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+	  - |codefactor| |actions_flake8| |actions_mypy|
 	* - Other
 	  - |license| |language| |requires|
 
@@ -63,8 +63,8 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	:target: https://github.com/domdfcoding/astatine/actions?query=workflow%3A%22mypy%22
 	:alt: mypy status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/astatine/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/astatine/requirements/?branch=master
+.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/badge.svg
+	:target: https://dependency-dash.herokuapp.com/github/domdfcoding/astatine/
 	:alt: Requirements Status
 
 .. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/astatine/master?logo=coveralls
@@ -114,16 +114,12 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	:target: https://github.com/domdfcoding/astatine/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2021
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2022
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/astatine
 	:target: https://pypi.org/project/astatine/
 	:alt: PyPI - Downloads
-
-.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/astatine/master.svg
-	:target: https://results.pre-commit.ci/latest/github/domdfcoding/astatine/master
-	:alt: pre-commit.ci status
 
 .. end shields
 
@@ -146,8 +142,8 @@ To install with ``conda``:
 
 	.. code-block:: bash
 
-		$ conda config --add channels http://conda.anaconda.org/conda-forge
-		$ conda config --add channels http://conda.anaconda.org/domdfcoding
+		$ conda config --add channels https://conda.anaconda.org/conda-forge
+		$ conda config --add channels https://conda.anaconda.org/domdfcoding
 
 	* Then install
 
