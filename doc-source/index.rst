@@ -151,17 +151,12 @@ Contents
 
 .. toctree::
 	:maxdepth: 3
-	:caption: API Reference
 	:glob:
 
-	api/*
-
-.. toctree::
-	:maxdepth: 3
-	:caption: Contributing
-
+	API Reference <api/astatine.rst>
 	contributing
 	Source
+	license
 
 .. sidebar-links::
 	:caption: Links
