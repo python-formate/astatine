@@ -41,11 +41,10 @@ keywords:
  - ast
 
 extra_sphinx_extensions:
- - sphinx_toolbox_experimental.needspace
- - sphinx_toolbox_experimental.autosummary_widths
+ - sphinx_toolbox.more_autosummary.column_widths
 
 sphinx_conf_epilogue:
- - autosummary_widths_builders = ["latex"]
+ - needspace_amount = r"5\baselineskip"
 
 exclude_files:
  - contributing
