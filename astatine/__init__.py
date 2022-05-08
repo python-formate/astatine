@@ -122,7 +122,7 @@ def is_type_checking(node: ast.AST) -> bool:
 	return False
 
 
-def mark_text_ranges(node: ast.AST, source: str):
+def mark_text_ranges(node: ast.AST, source: str) -> None:
 	"""
 	Recursively add the ``end_lineno`` and ``end_col_offset`` attributes to each child of ``node``
 	which already has the attributes ``lineno`` and ``col_offset``.
