@@ -6,8 +6,7 @@ from typing import Union
 
 # 3rd party
 import pytest
-from coincidence.regressions import AdvancedDataRegressionFixture, check_file_regression
-from pytest_regressions.file_regression import FileRegressionFixture
+from coincidence.regressions import AdvancedDataRegressionFixture, AdvancedFileRegressionFixture
 
 # this package
 from astatine import (
@@ -48,8 +47,8 @@ except ImportError:
 						),
 				]
 		)
-def test_get_toplevel_comments(source: str, file_regression: FileRegressionFixture):
-	check_file_regression(get_toplevel_comments(source), file_regression)
+def test_get_toplevel_comments(source: str, advanced_file_regression: AdvancedFileRegressionFixture):
+	advanced_file_regression.check(get_toplevel_comments(source))
 
 
 @pytest.mark.parametrize(
