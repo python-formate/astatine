@@ -62,7 +62,7 @@ except ImportError:  # pragma: no cover
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2021 Dominic Davis-Foster"
 __license__: str = "MIT License"
-__version__: str = "0.3.1"
+__version__: str = "0.3.2"
 __email__: str = "dominic@davis-foster.co.uk"
 
 __all__ = [
