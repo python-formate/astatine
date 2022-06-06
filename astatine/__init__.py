@@ -65,7 +65,7 @@ __license__: str = "MIT License"
 __version__: str = "0.3.2"
 __email__: str = "dominic@davis-foster.co.uk"
 
-__all__ = [
+__all__ = (
 		"get_docstring_lineno",
 		"get_toplevel_comments",
 		"is_type_checking",
@@ -74,7 +74,7 @@ __all__ = [
 		"get_attribute_name",
 		"get_contextmanagers",
 		"get_constants",
-		]
+		)
 
 
 def get_toplevel_comments(source: str) -> StringList:
@@ -133,7 +133,7 @@ def mark_text_ranges(node: ast.AST, source: str) -> None:
 
 	ASTTokens(source, tree=node)
 
-	for child in ast.walk(node):
+	for child in ast.walk(node):  # pylint: disable=dotted-import-in-loop
 		if hasattr(child, "last_token"):
 			child.end_lineno, child.end_col_offset = child.last_token.end  # type: ignore[attr-defined]
 
@@ -260,12 +260,15 @@ def get_constants(module: ast.Module) -> Dict[str, Any]:
 
 	constants = {}
 
-	for node in module.body:
-		if isinstance(node, ast.Assign):
-			targets = ['.'.join(get_attribute_name(t)) for t in node.targets]
-			value = ast.literal_eval(node.value)
+	AssignNode = ast.Assign
+	literal_eval = ast.literal_eval
 
-			for target in targets:
+	for node in module.body:
+		if isinstance(node, AssignNode):
+			targets = ['.'.join(get_attribute_name(t)) for t in node.targets]  # pylint: disable=W8201
+			value = literal_eval(node.value)
+
+			for target in targets:  # pylint: disable=use-dict-comprehension
 				constants[target] = value
 
 	return constants

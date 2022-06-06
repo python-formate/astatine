@@ -2,7 +2,7 @@
 import ast
 import sys
 from types import ModuleType
-from typing import Union
+from typing import Any, Dict, Union
 
 # 3rd party
 import pytest
@@ -82,7 +82,7 @@ def test_is_type_checking(source: str, expected: bool):
 
 	class Visitor(ast.NodeVisitor):
 
-		def visit_If(self, node: ast.If):
+		def visit_If(self, node: ast.If) -> None:
 			print(node, node.test)
 			assert is_type_checking(node) is expected
 
@@ -218,7 +218,7 @@ def test_mark_text_ranges(source: str, advanced_data_regression: AdvancedDataReg
 	# TODO: check the output
 
 
-def demo_function(arg1, arg2, arg3):
+def demo_function(arg1, arg2, arg3):  # noqa: MAN001,MAN002
 	pass
 
 
@@ -229,7 +229,7 @@ def demo_function(arg1, arg2, arg3):
 				("foo(1, 2, 3)", demo_function, {"arg1": 1, "arg2": 2, "arg3": 3}),
 				]
 		)
-def test_kwargs_from_node(source, posarg_names, expects):
+def test_kwargs_from_node(source: str, posarg_names: Any, expects: Dict[str, Any]):
 	tree = ast.parse(source)
 	node = tree.body[0].value  # type: ignore[attr-defined]
 
