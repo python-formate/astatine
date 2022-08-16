@@ -36,7 +36,7 @@ import ast
 from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Type, Union, cast
 
 # 3rd party
-from asttokens.asttokens import ASTTokens  # type: ignore[import]
+from asttokens.asttokens import ASTTokens
 from domdf_python_tools.stringlist import StringList
 from domdf_python_tools.utils import posargs2kwargs
 
@@ -131,7 +131,7 @@ def mark_text_ranges(node: ast.AST, source: str) -> None:
 	:param source: The corresponding source code for the node.
 	"""  # noqa: D400
 
-	ASTTokens(source, tree=node)
+	ASTTokens(source, tree=node)  # type: ignore[arg-type]
 
 	for child in ast.walk(node):  # pylint: disable=dotted-import-in-loop
 		if hasattr(child, "last_token"):
