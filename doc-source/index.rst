@@ -66,8 +66,8 @@ astatine
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| image:: https://dependency-dash.herokuapp.com/github/python-formate/astatine/badge.svg
-		:target: https://dependency-dash.herokuapp.com/github/python-formate/astatine/
+	.. |requires| image:: https://dependency-dash.repo-helper.uk/github/python-formate/astatine/badge.svg
+		:target: https://dependency-dash.repo-helper.uk/github/python-formate/astatine/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
