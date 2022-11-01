@@ -208,8 +208,8 @@ def test_mark_text_ranges(source: str, advanced_data_regression: AdvancedDataReg
 
 	for child in ast.walk(tree):
 		if hasattr(child, "last_token"):
-			assert child.end_lineno  # type: ignore[attr-defined]
-			assert child.end_col_offset is not None  # type: ignore[attr-defined]
+			assert child.end_lineno
+			assert child.end_col_offset is not None
 
 			if hasattr(child, "lineno"):
 				assert child.lineno
@@ -236,9 +236,9 @@ def test_kwargs_from_node(source: str, posarg_names: Any, expects: Dict[str, Any
 	result = kwargs_from_node(node, posarg_names)
 
 	if sys.version_info >= (3, 8):
-		assert {k: v.value for k, v in result.items()} == expects
+		assert {k: v.value for k, v in result.items()} == expects  # type: ignore[attr-defined]
 	else:
-		assert {k: v.n for k, v in result.items()} == expects  # type: ignore[attr-defined]
+		assert {k: v.n for k, v in result.items()} == expects
 
 
 @pytest.mark.parametrize(
