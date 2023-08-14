@@ -43,7 +43,7 @@ keywords:
 
 extra_sphinx_extensions:
  - sphinx_toolbox.more_autosummary.column_widths
- - sphinx-favicon
+ - sphinx_favicon
 
 sphinx_conf_epilogue:
  - needspace_amount = r"5\baselineskip"
