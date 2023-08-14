@@ -33,6 +33,7 @@ Some handy helper functions for Python's AST module.
 
 # stdlib
 import ast
+import sys
 from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Type, Union, cast
 
 # 3rd party
@@ -47,17 +48,21 @@ Expr: Tuple[Type, ...]
 try:  # pragma: no cover
 	# 3rd party
 	import typed_ast.ast3
-	Str = (ast.Str, typed_ast.ast3.Str)
 	Constant = (
 			ast.Constant,
 			typed_ast.ast3.Constant,  # type: ignore[attr-defined]
 			)
 	Expr = (ast.Expr, typed_ast.ast3.Expr)
 
+	if sys.version_info < (3, 12):
+		Str = (ast.Str, typed_ast.ast3.Str)
+
 except ImportError:  # pragma: no cover
-	Str = (ast.Str, )
 	Constant = (ast.Constant, )
 	Expr = (ast.Expr, )
+
+	if sys.version_info < (3, 12):
+		Str = (ast.Str, )
 
 __author__: str = "Dominic Davis-Foster"
 __copyright__: str = "2021 Dominic Davis-Foster"
@@ -166,10 +171,12 @@ def get_docstring_lineno(node: Union[ast.FunctionDef, ast.ClassDef, ast.Module])
 
 	if isinstance(body, Constant) and isinstance(body.value, str):  # pragma: no cover (<py38)
 		return body.lineno
-	elif isinstance(body, Str):  # pragma: no cover (py38+)
-		return body.lineno
-	else:  # pragma: no cover
-		return None
+	else:  # pragma: no cover (py38+)
+		if sys.version_info < (3, 12):  # pragma: no cover (py312+)
+			if isinstance(body, Str):
+				return body.lineno
+
+		return None  # pragma: no cover
 
 
 def kwargs_from_node(
