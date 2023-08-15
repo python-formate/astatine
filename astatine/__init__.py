@@ -113,9 +113,14 @@ def is_type_checking(node: ast.AST) -> bool:
 	if isinstance(node, ast.If):
 		node = node.test
 
-	if isinstance(node, ast.NameConstant) and node.value is False:
-		return True
-	elif isinstance(node, ast.Name) and node.id == "TYPE_CHECKING":
+	if sys.version_info < (3, 12):  # pragma: no cover (py312+)
+		if isinstance(node, ast.NameConstant) and node.value is False:
+			return True
+	else:  # pragma: no cover (<py312)
+		if isinstance(node, ast.Constant) and node.value is False:
+			return True
+
+	if isinstance(node, ast.Name) and node.id == "TYPE_CHECKING":
 		return True
 	elif isinstance(node, ast.Attribute) and node.attr == "TYPE_CHECKING":
 		return True
