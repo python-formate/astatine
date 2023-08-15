@@ -106,7 +106,7 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 .. |language| image:: https://img.shields.io/github/languages/top/python-formate/astatine
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/python-formate/astatine/v0.3.2
+.. |commits-since| image:: https://img.shields.io/github/commits-since/python-formate/astatine/v0.3.3
 	:target: https://github.com/python-formate/astatine/pulse
 	:alt: GitHub commits since tagged version
 
