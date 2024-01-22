@@ -114,7 +114,7 @@ It's a fitting name for Python's ``ast`` module, which has been unstable between
 	:target: https://github.com/python-formate/astatine/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2024
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/astatine
