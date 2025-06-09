@@ -172,7 +172,7 @@ def get_docstring_lineno(node: Union[ast.FunctionDef, ast.ClassDef, ast.Module])
 	if not (node.body and isinstance(node.body[0], Expr)):  # pragma: no cover
 		return None
 
-	body = node.body[0].value  # type: ignore[attr-defined]
+	body = node.body[0].value
 
 	if isinstance(body, Constant) and isinstance(body.value, str):  # pragma: no cover (<py38)
 		return body.lineno

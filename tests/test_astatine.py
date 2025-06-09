@@ -208,12 +208,12 @@ def test_mark_text_ranges(source: str, advanced_data_regression: AdvancedDataReg
 
 	for child in ast.walk(tree):
 		if hasattr(child, "last_token"):
-			assert child.end_lineno
-			assert child.end_col_offset is not None
+			assert child.end_lineno  # type: ignore[attr-defined]
+			assert child.end_col_offset is not None  # type: ignore[attr-defined]
 
 			if hasattr(child, "lineno"):
 				assert child.lineno
-				assert child.col_offset is not None
+				assert child.col_offset is not None  # type: ignore[attr-defined]
 
 	# TODO: check the output
 
